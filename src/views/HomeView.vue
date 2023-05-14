@@ -1,6 +1,12 @@
 <template>
   <div class="home">
     <PostList :posts="posts"></PostList>
+    <button
+      @click="posts.pop()"
+      class="bg-red-500 hover:bg-red-600 rounded-md px-3 py-1 text-slate-100"
+    >
+      Delete Lastst Post
+    </button>
   </div>
 </template>
 
