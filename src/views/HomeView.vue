@@ -1,30 +1,34 @@
 <template>
   <div class="home">
-    <input
-      type="text"
-      id="first_name"
-      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 mx-auto"
-      placeholder="Search"
-      v-model="search"
-    />
-    <h1 class="text-center text-3xl font-semibold">{{ search }}</h1>
-    <div class="border-b-2 py-9" v-for="name in filterNames" :key="name">
-      <h1 class="text-center text-3xl font-semibold">{{ name }}</h1>
-    </div>
+    <PostList :posts="posts"></PostList>
   </div>
 </template>
 
 <script>
-import { computed, reactive, ref } from "vue";
+import PostList from "./PostList";
+import { ref } from "vue";
 export default {
+  components: { PostList },
   setup() {
-    let search = ref("");
-    let names = ref(["Panda", "Thet Hnin Phyu", "Paing Thu Htwe", "Htar"]);
+    let posts = ref([
+      {
+        id: 1,
+        title: "Title One",
+        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo iste, voluptate consequuntur fugit suscipit ratione ut libero. Ut modi deserunt inventore, sapiente blanditiis reiciendis aliquam et, excepturi, doloribus saepe cum.",
+      },
+      {
+        id: 2,
+        title: "Title Two",
+        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo iste, voluptate consequuntur fugit suscipit ratione ut libero. Ut modi deserunt inventore, sapiente blanditiis reiciendis aliquam et, excepturi, doloribus saepe cum.",
+      },
+      {
+        id: 3,
+        title: "Title Three",
+        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo iste, voluptate consequuntur fugit suscipit ratione ut libero. Ut modi deserunt inventore, sapiente blanditiis reiciendis aliquam et, excepturi, doloribus saepe cum.",
+      },
+    ]);
 
-    let filterNames = computed(() => {
-      return names.value.filter((name) => name.includes(search.value));
-    });
-    return { names, search, filterNames };
+    return { posts };
   },
 };
 </script>
