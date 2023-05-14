@@ -6,7 +6,7 @@
       <span class="text-2xl font-semibold text-teal-800"
         >{{ post.id }}. {{ post.title }}</span
       ><br />
-      <span class="text-lg">{{ post.description }}</span>
+      <span class="text-lg">{{ post.body }}</span>
     </p>
   </div>
   <div v-else>

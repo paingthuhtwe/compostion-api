@@ -3,13 +3,10 @@ import { ref } from "vue";
 let getPosts = () =>{
     let posts = ref([]);
     let error = ref("");
-    let url = ref("http://127.0.0.1:8000/api/projects");
+    let url = ref("http://127.0.0.1:8000/api/posts");
 
     let load = async () => {
       try {
-        await new Promise((resolve, reject)=>{
-            setTimeout(resolve, 500);
-        });
         let res = await fetch(url.value);
         if (res.status === 404) {
           throw new Error("404. Not Found Url!");
