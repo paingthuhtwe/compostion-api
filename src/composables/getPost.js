@@ -3,7 +3,7 @@ import { ref } from "vue";
 let getPost = (id) => {
     let post = ref(null);
     let error = ref("");
-    let url = ref("http://127.0.0.1:8000/api/projects/");
+    let url = ref("http://127.0.0.1:8000/api/posts/");
     
     let load = async() => {
         try {

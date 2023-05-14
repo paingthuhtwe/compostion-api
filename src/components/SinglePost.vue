@@ -21,10 +21,10 @@ export default {
   props: ["post"],
   setup(props) {
     let cutPostBody = computed(() => {
-      if (props.post.description.length > 75) {
-        return props.post.description.substring(0, 75) + " . . .";
+      if (props.post.body.length > 75) {
+        return props.post.body.substring(0, 75) + " . . .";
       } else {
-        return props.post.description;
+        return props.post.body;
       }
     });
 
