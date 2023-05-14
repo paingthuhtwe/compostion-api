@@ -7,6 +7,9 @@ let getPost = (id) => {
     
     let load = async() => {
         try {
+            await new Promise((resolve, reject)=>{
+                setTimeout(resolve, 500);
+            });
             let res = await fetch(url.value+id);
             if (res.status === 404) {
                 throw new Error('404. Not Found Url');
