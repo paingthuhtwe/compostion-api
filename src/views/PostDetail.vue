@@ -9,12 +9,16 @@
       <span class="text-lg">{{ post.description }}</span>
     </p>
   </div>
-  <div v-else>Loading . . .</div>
+  <div v-else>
+    <LoadingPage></LoadingPage>
+  </div>
 </template>
 
 <script>
+import LoadingPage from "../components/LoadingPage";
 import getPost from "../composables/getPost";
 export default {
+  components: { LoadingPage },
   props: ["id"],
   setup(props) {
     let { post, error, load } = getPost(props.id);
