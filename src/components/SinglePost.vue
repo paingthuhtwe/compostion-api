@@ -1,6 +1,6 @@
 <template>
   <p
-    class="bg-slate-200 rounded-md w-64 mb-4 p-3 text-left mx-auto shadow-md border-[.5px] border-red-500 shadow-red-100"
+    class="bg-slate-200 rounded-md w-96 mb-4 p-3 text-left mx-auto shadow-md border-[.5px] border-red-500 shadow-red-100"
   >
     {{ post.id }}.
     <span class="font-semibold text-red-800">{{ post.title }}</span
@@ -15,7 +15,11 @@ export default {
   props: ["post"],
   setup(props) {
     let cutPostBody = computed(() => {
-      return props.post.body.substring(0, 75) + " . . .";
+      if (props.post.description.length > 75) {
+        return props.post.description.substring(0, 75) + " . . .";
+      } else {
+        return props.post.description;
+      }
     });
 
     return { cutPostBody };
