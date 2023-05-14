@@ -8,11 +8,9 @@ let getPosts = () =>{
     let load = async () => {
       try {
         let res = await fetch(url.value);
-
         if (res.status === 404) {
           throw new Error("404. Not Found Url!");
         }
-
         let datas = await res.json();
         posts.value = datas;
       } catch (err) {

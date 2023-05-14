@@ -5,7 +5,13 @@
     {{ post.id }}.
     <span class="font-semibold text-red-800">{{ post.title }}</span
     ><br />
-    <span>{{ cutPostBody }}</span>
+    <span>{{ cutPostBody }}</span
+    ><br />
+    <router-link
+      class="underline text-blue-700 hover:text-blue-800"
+      :to="{ name: 'PostDetail', params: { id: post.id } }"
+      >Detail</router-link
+    >
   </p>
 </template>
 
