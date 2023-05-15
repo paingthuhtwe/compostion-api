@@ -1,5 +1,5 @@
 <template>
-  <div class="home" v-if="posts.length > 0">
+  <div class="home md:w-[790px] lg:w-[1200px] mx-auto" v-if="posts.length > 0">
     <PostList :posts="posts" :error="error"></PostList>
   </div>
   <div v-else>

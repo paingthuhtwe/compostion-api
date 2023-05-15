@@ -1,5 +1,6 @@
 <template>
   <NavbarPage></NavbarPage>
+  <router-view />
 </template>
 
 <script>
