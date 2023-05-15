@@ -12,7 +12,7 @@
       </div>
       <div class="lg:col-span-4 md:col-span-6 col-span-12">
         <h1 class="text-2xl font-semibold text-slate-800 my-4">Tag Cloud</h1>
-        <TagCloud></TagCloud>
+        <TagCloud :posts="posts"></TagCloud>
       </div>
     </div>
   </div>
@@ -22,12 +22,14 @@
 </template>
 
 <script>
+import TagCloud from "../components/TagCloud";
 import LoadingPage from "../components/LoadingPage";
 import PostList from "./PostList";
 import { computed, ref } from "vue";
 import getPosts from "../composables/getPosts";
 export default {
   components: {
+    TagCloud,
     LoadingPage,
     PostList,
   },
