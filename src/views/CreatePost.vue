@@ -51,7 +51,7 @@
 
 <script>
 import { ref } from "vue";
-import createPost from "../composables/createPost";
+import { useRouter } from "vue-router";
 export default {
   setup() {
     let title = ref("");
@@ -68,9 +68,35 @@ export default {
       }
     };
 
-    let { error, create } = createPost(title.value, body.value, tags.value);
+    // for create post
+    let url = ref("http://127.0.0.1:8000/api/posts");
+    let error = ref("");
+    let router = useRouter();
+    let create = async () => {
+      try {
+        let res = await fetch(url.value, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: title.value,
+            body: body.value,
+            category: tags.value.toString(),
+          }),
+        });
 
-    return { title, body, category, error, create, addCategory, tags };
+        if (res.status === 404) {
+          throw new Error("404. Not Found Url!");
+        }
+
+        router.push({ name: "home" });
+      } catch (err) {
+        error.value = err.message;
+      }
+    };
+
+    return { title, body, category, tags, error, create, addCategory };
   },
 };
 </script>
