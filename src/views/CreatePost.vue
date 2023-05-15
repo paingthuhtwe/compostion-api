@@ -1,5 +1,5 @@
 <template>
-  <div class="w-96 mx-auto bg-slate-200 py-9 px-5 rounded-md">
+  <div class="w-[460px] mx-auto bg-slate-200 py-9 px-5 rounded-md">
     <form @submit.prevent="create">
       <h1 class="text-2xl font-medium mb-3">Create New Post</h1>
       <label for="title" class="block text-left">Title</label>

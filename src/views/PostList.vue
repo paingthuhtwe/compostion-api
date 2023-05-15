@@ -1,7 +1,4 @@
 <template>
-  <span class="text-xl py-2 px-4 font-semibold bg-yellow-400 inline-block mb-3"
-    >#Post List</span
-  >
   <div
     v-if="error"
     class="bg-red-100 rounded-md px-9 py-3 text-center w-96 mx-auto"
