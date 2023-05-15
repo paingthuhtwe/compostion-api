@@ -2,6 +2,7 @@ import { ref } from "vue";
 
 let getPost = (id) => {
     let post = ref(null);
+    let array = ref([])
     let error = ref("");
     let url = ref("http://127.0.0.1:8000/api/posts/");
     
@@ -13,11 +14,12 @@ let getPost = (id) => {
             }
             let data = await res.json();
             post.value = data;
+            array.value = post.value.category.split(',');
             } catch (err) {
                 error.value = err.message;
             }
         }
-    return {post, error, load};
+    return {array,post, error, load};
 }
 
 export default getPost;
