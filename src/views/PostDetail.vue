@@ -1,7 +1,7 @@
 <template>
   <div v-if="post">
     <div
-      class="bg-slate-100 rounded-sm w-[460px] mb-4 p-3 text-left mx-auto shadow-md border-[.5px] border-yellow-900 shadow-yellow-50"
+      class="bg-slate-100 rounded-sm w-96 md:w-[720px] mb-4 p-3 text-left mx-auto shadow-md border-[.5px] border-yellow-900 shadow-yellow-50"
     >
       <span
         class="text-md py-1 px-3 font-medium bg-yellow-400 inline-block -rotate-[7.5deg] -translate-x-6 mb-2"

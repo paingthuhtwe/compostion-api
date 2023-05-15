@@ -1,13 +1,17 @@
 <template>
-  <h1 class="text-xl font-medium mb-3">Post List</h1>
+  <span class="text-xl py-2 px-4 font-semibold bg-yellow-400 inline-block mb-3"
+    >#Post List</span
+  >
   <div
     v-if="error"
     class="bg-red-100 rounded-md px-9 py-3 text-center w-96 mx-auto"
   >
     {{ error }}
   </div>
-  <div v-for="post in posts" :key="post.id">
-    <SinglePost :post="post"></SinglePost>
+  <div class="flex justify-center md:justify-start flex-wrap gap-5">
+    <div v-for="post in posts" :key="post.id">
+      <SinglePost :post="post"></SinglePost>
+    </div>
   </div>
 </template>
 

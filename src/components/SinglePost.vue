@@ -1,6 +1,6 @@
 <template>
   <p
-    class="bg-slate-200 rounded-md w-96 mb-4 p-3 text-left mx-auto shadow-md border-[.5px] border-red-500 shadow-red-100"
+    class="bg-slate-200 rounded-md w-96 p-3 text-left mx-auto shadow-md border-[.5px] border-red-500 shadow-red-100"
   >
     <span class="font-semibold text-red-800">{{ post.title }}</span
     ><br />
