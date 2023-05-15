@@ -52,12 +52,13 @@ import LoadingPage from "../components/LoadingPage";
 import getPost from "../composables/getPost";
 import moment from "moment";
 import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 export default {
   components: { LoadingPage },
   props: ["id"],
   setup(props) {
-    let { array, post, error, load } = getPost(props.id);
+    let route = useRoute();
+    let { array, post, error, load } = getPost(route.params.id);
     load();
 
     let formatDate = (date) => {
