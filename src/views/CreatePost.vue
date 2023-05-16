@@ -36,8 +36,8 @@
         type="text"
         id="category"
         class="bg-slate-50 rounded-md w-full block px-2 py-1 mb-6"
-        v-model="category"
-        @keydown.enter.prevent="addCategory"
+        v-model="tag"
+        @keydown.enter.prevent="addTag"
       />
       <button
         type="submit"
@@ -52,51 +52,42 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { db } from "../firebase/config";
 export default {
   setup() {
     let title = ref("");
     let body = ref("");
     let tags = ref([]);
-    let category = ref("");
+    let tag = ref("");
 
-    let addCategory = () => {
-      if (tags.value.includes(category.value)) {
-        category.value = "";
+    let addTag = () => {
+      if (tags.value.includes(tag.value)) {
+        tag.value = "";
       } else {
-        tags.value.push(category.value);
-        category.value = "";
+        tags.value.push(tag.value);
+        tag.value = "";
       }
     };
 
-    // for create post
-    let url = ref("http://127.0.0.1:8000/api/posts");
-    let error = ref("");
+    // for create post to firebase
     let router = useRouter();
+    let error = ref("");
+
     let create = async () => {
       try {
-        let res = await fetch(url.value, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            title: title.value,
-            body: body.value,
-            category: tags.value.toString(),
-          }),
+        let res = await db.collection("posts").add({
+          title: title.value,
+          body: body.value,
+          tags: tags.value,
         });
-
-        if (res.status === 404) {
-          throw new Error("404. Not Found Url!");
-        }
-
+        console.log(res);
         router.push({ name: "home" });
       } catch (err) {
         error.value = err.message;
       }
     };
 
-    return { title, body, category, tags, error, create, addCategory };
+    return { title, body, tag, tags, error, create, addTag };
   },
 };
 </script>
