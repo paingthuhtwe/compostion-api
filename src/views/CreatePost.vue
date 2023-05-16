@@ -13,6 +13,7 @@
       <label for="body" class="block text-left">Body</label>
       <textarea
         id="body"
+        rows="10"
         class="bg-slate-50 rounded-md w-full block px-2 py-1 mb-3"
         v-model="body"
         required
