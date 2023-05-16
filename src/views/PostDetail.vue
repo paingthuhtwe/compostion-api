@@ -59,6 +59,7 @@ import getPost from "../composables/getPost";
 import moment from "moment";
 import { ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { db } from "../firebase/config";
 export default {
   components: { LoadingPage },
   props: ["id"],
@@ -76,13 +77,9 @@ export default {
     let router = useRouter();
     let deletePost = (id) => {
       let deleting = async () => {
-        let res = await fetch(url.value + id, {
-          method: "DELETE",
-        });
+        await db.collection("posts").doc(id).delete();
 
-        if (res.ok) {
-          router.push({ name: "home" });
-        }
+        router.push({ name: "home" });
       };
       deleting();
     };
