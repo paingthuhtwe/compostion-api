@@ -4,7 +4,7 @@ import { db } from '../firebase/config'
 let getPosts = () =>{
     let posts = ref([]);
     let error = ref("");
-    let url = ref("http://127.0.0.1:8000/api/posts");
+    // let url = ref("http://127.0.0.1:8000/api/posts");
 
     let load = async () => {
       try {

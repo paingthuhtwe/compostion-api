@@ -1,9 +1,8 @@
 <template>
-  <p
+  <div
     class="bg-slate-200 rounded-md w-96 p-3 text-left mx-auto shadow-md border-[.5px] border-red-500 shadow-red-100"
   >
-    <div class="font-semibold text-red-800 text-xl mb-2">{{ post.title }}</div
-    >
+    <div class="font-semibold text-red-800 text-xl mb-2">{{ post.title }}</div>
     <div class="text-lg">{{ cutPostBody }}</div>
     <router-link
       class="underline text-sky-500 hover:text-blue-800 text-lg"
@@ -24,7 +23,7 @@
         </router-link>
       </span>
     </span>
-  </p>
+  </div>
 </template>
 
 <script>
