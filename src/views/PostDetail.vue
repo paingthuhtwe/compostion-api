@@ -35,7 +35,7 @@
       <span class="flex flex-wrap mt-2">
         <span
           class="text-sm mx-1 rounded-sm px-3 py-1 bg-red-200 mb-2 font-medium hover:bg-red-300 cursor-pointer inline-block"
-          v-for="tag in post.category.split(',')"
+          v-for="tag in post.tags"
           :key="tag"
         >
           <router-link

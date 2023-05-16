@@ -29,8 +29,8 @@ export default {
   setup(props) {
     let tags = ref([]);
     props.posts.forEach((post) => {
-      post.category.split(",").forEach((category) => {
-        tags.value.push(category);
+      post.tags.forEach((tag) => {
+        tags.value.push(tag);
       });
     });
     let filterTags = computed(() => {

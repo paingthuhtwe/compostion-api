@@ -41,7 +41,7 @@ export default {
 
     let filterPosts = computed(() => {
       return posts.value.filter((post) => {
-        return post.category.includes(props.tag);
+        return post.tags.includes(props.tag);
       });
     });
 
