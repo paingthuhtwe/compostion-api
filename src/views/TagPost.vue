@@ -8,7 +8,7 @@
         <h1 class="text-2xl font-semibold text-slate-800 my-4 text-left">
           Post Lists
         </h1>
-        <PostList :posts="posts" :error="error"></PostList>
+        <PostList :posts="filterPosts" :error="error"></PostList>
       </div>
       <div class="lg:col-span-4 md:col-span-6 col-span-12">
         <h1 class="text-2xl font-semibold text-slate-800 my-4">Tag Cloud</h1>
@@ -25,6 +25,7 @@
 import TagCloud from "../components/TagCloud";
 import LoadingPage from "../components/LoadingPage";
 import PostList from "./PostList";
+import { computed, ref } from "vue";
 import getPosts from "../composables/getPosts";
 export default {
   components: {
@@ -32,13 +33,22 @@ export default {
     LoadingPage,
     PostList,
   },
-  setup() {
-    // composable function
-    let { posts, error, load } = getPosts();
+  props: ["tag"],
+  setup(props) {
+    let { error, posts, load } = getPosts();
 
     load();
 
-    return { posts, error };
+    let filterPosts = computed(() => {
+      return posts.value.filter((post) => {
+        return post.tags.includes(props.tag);
+      });
+    });
+
+    return { error, posts, load, filterPosts };
   },
 };
 </script>
+
+<style>
+</style>
