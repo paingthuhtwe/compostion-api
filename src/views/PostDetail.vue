@@ -69,7 +69,7 @@ export default {
     load();
 
     let formatDate = (date) => {
-      return moment(date).fromNow();
+      return moment(date).startOf("hour").fromNow();
     };
 
     // delete method for post

@@ -52,7 +52,7 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { db } from "../firebase/config";
+import { db, timestamp } from "../firebase/config";
 export default {
   setup() {
     let title = ref("");
@@ -79,8 +79,8 @@ export default {
           title: title.value,
           body: body.value,
           tags: tags.value,
+          created_at: timestamp(),
         });
-        console.log(res);
         router.push({ name: "home" });
       } catch (err) {
         error.value = err.message;
