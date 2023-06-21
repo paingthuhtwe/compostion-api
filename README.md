@@ -19,4 +19,7 @@ npm run build
 ```
 
 ### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+See [Configuration Reference](https://cli.vuejs.org/config/)
+
+![Live Chat By Panda](https://firebasestorage.googleapis.com/v0/b/paingthuhtwe-portfolio.appspot.com/o/projects%2FVueBlog.png?alt=media&token=6f089240-40f5-475f-a45f-3c565611ab24)
+
